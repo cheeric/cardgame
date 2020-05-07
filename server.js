@@ -6,10 +6,12 @@ var http = require("http");
 var express = require("express");
 var app = express();
 
+const port = process.env.PORT || 3000;
+
 app.use("/", express.static(__dirname + "/"));
 app.use("/resources", express.static(__dirname + "/resources"));
 var server = http.createServer(app);
-server.listen(8080);
+server.listen(port);
 var io = socket.listen(server);
 
 var table = new Table(1);
